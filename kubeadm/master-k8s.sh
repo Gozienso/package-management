@@ -1,7 +1,7 @@
 #!/bin/bash
 #i1) Switch to root user [ sudo -i]
 
-sudo hostnamectl set-hostname  node1
+#sudo hostnamectl set-hostname  master
 
 #2) Disable swap & add kernel settings
 
@@ -100,4 +100,10 @@ systemctl enable kubelet.service
 kubeadm init 
 
 su - ubuntu
+
+ mkdir -p $HOME/.kube
+ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+
 ~
