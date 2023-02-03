@@ -100,6 +100,7 @@ systemctl enable kubelet.service
 kubeadm init 
 
 su - ubuntu
+# For authentication, we shall run the below as regular user.
 
  mkdir -p $HOME/.kube
  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
